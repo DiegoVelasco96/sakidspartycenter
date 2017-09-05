@@ -24,8 +24,10 @@ $(function() {
                     $nav.removeClass( 'nav-dot-current' );
                     $nav.eq( pos ).addClass( 'nav-dot-current' );
 
-                }
-            } ),
+                },
+                autoplay: true, 
+                interval: 6000
+            }),
 
             init = function() {
 
@@ -127,7 +129,7 @@ $(document).ready(function(){
 	
 	
 	
-	$("#works, #testimonial").owlCarousel({	 
+	$("#works, #testimonial").owlCarousel({
 		navigation : true,
 		pagination : false,
 		slideSpeed : 700,
@@ -181,7 +183,7 @@ function init() {
     // Basic options for a simple Google Map
     // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
 
-	    var myLatLng = new google.maps.LatLng(22.402789, 91.822156);
+	    var myLatLng = new google.maps.LatLng(29.596042, -98.57428240000002);
 
 	    var mapOptions = {
 	        zoom: 15,
@@ -190,7 +192,8 @@ function init() {
 	        scrollwheel: false,
 	        navigationControl: true,
 	        mapTypeControl: false,
-	        scaleControl: false,
+	        zoomControl: false,
+	        scaleControl: true,
 	        draggable: true,
 
         // How you would like to style the map. 
@@ -253,7 +256,7 @@ function init() {
 
     // Let's also add a marker while we're at it
     var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(22.402789, 91.822156),
+        position: new google.maps.LatLng(29.5960417, -98.57428240000002),
         map: map,
 		icon: 'img/icons/map-marker.png',
     });
