@@ -18,7 +18,7 @@ body  {
     
     background-color: #ffffff;
 /*    font-family: 'Open Sans', sans-serif;*/
-    font-family: 'Shadows Into Light', sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
     line-height: 24px;
     font-size: 20px;
     color: #000;
@@ -1450,4 +1450,27 @@ textarea.form-control {
 
 .zoomIn:hover {
     font-size: 25px
+}
+
+#contact {
+    background-image: url(../img/parallax/fondo.jpg);
+    padding: 0;
+}
+
+#price {
+    background-image: url(../img/parallax/fondo_offer.jpg);
+    padding: 0;
+}
+
+#service {
+    background-image: url(../img/parallax/fondo_services.jpg);
+    padding: 0;
+}
+
+.overlay{
+    padding: 20px 0;
+}
+
+#service .overlay{
+    padding: 90px 0;
 }

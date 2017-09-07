@@ -2,9 +2,9 @@
 /*	Preloader
 /* ========================================================================= */
 
-jQuery(window).load(function(){
+jQuery(window).load(function () {
 
-	$("#preloader").fadeOut("slow");
+    $("#preloader").fadeOut("slow");
 
 });
 
@@ -12,68 +12,68 @@ jQuery(window).load(function(){
 /*  Welcome Section Slider
 /* ========================================================================= */
 
-$(function() {
+$(function () {
 
-    var Page = (function() {
+    var Page = (function () {
 
-        var $navArrows = $( '#nav-arrows' ),
-            $nav = $( '#nav-dots > span' ),
-            slitslider = $( '#slider' ).slitslider( {
-                onBeforeChange : function( slide, pos ) {
+        var $navArrows = $('#nav-arrows'),
+            $nav = $('#nav-dots > span'),
+            slitslider = $('#slider').slitslider({
+                onBeforeChange: function (slide, pos) {
 
-                    $nav.removeClass( 'nav-dot-current' );
-                    $nav.eq( pos ).addClass( 'nav-dot-current' );
+                    $nav.removeClass('nav-dot-current');
+                    $nav.eq(pos).addClass('nav-dot-current');
 
                 },
-                autoplay: true, 
+                autoplay: true,
                 interval: 6000
             }),
 
-            init = function() {
+            init = function () {
 
                 initEvents();
-                
+
             },
-            initEvents = function() {
+            initEvents = function () {
 
                 // add navigation events
-                $navArrows.children( ':last' ).on( 'click', function() {
+                $navArrows.children(':last').on('click', function () {
 
                     slitslider.next();
                     return false;
 
-                } );
+                });
 
-                $navArrows.children( ':first' ).on( 'click', function() {
-                    
+                $navArrows.children(':first').on('click', function () {
+
                     slitslider.previous();
                     return false;
 
-                } );
+                });
 
-                $nav.each( function( i ) {
-                
-                    $( this ).on( 'click', function( event ) {
-                        
-                        var $dot = $( this );
-                        
-                        if( !slitslider.isActive() ) {
+                $nav.each(function (i) {
 
-                            $nav.removeClass( 'nav-dot-current' );
-                            $dot.addClass( 'nav-dot-current' );
-                        
+                    $(this).on('click', function (event) {
+
+                        var $dot = $(this);
+
+                        if (!slitslider.isActive()) {
+
+                            $nav.removeClass('nav-dot-current');
+                            $dot.addClass('nav-dot-current');
+
                         }
-                        
-                        slitslider.jump( i + 1 );
+
+                        slitslider.jump(i + 1);
                         return false;
-                    
-                    } );
-                    
-                } );
+
+                    });
+
+                });
 
             };
 
-            return { init : init };
+        return { init: init };
 
     })();
 
@@ -83,89 +83,90 @@ $(function() {
 
 
 
-$(document).ready(function(){
+$(document).ready(function () {
 
-	/* ========================================================================= */
+    /* ========================================================================= */
 	/*	Menu item highlighting
 	/* ========================================================================= */
 
-	jQuery('#nav').singlePageNav({
-		offset: jQuery('#nav').outerHeight(),
-		filter: ':not(.external)',
-		speed: 2000,
-		currentClass: 'current',
-		easing: 'easeInOutExpo',
-		updateHash: true,
-		beforeStart: function() {
-			console.log('begin scrolling');
-		},
-		onComplete: function() {
-			console.log('done scrolling');
-		}
-	});
-	
+    jQuery('#nav').singlePageNav({
+        offset: jQuery('#nav').outerHeight(),
+        filter: ':not(.external)',
+        speed: 2000,
+        currentClass: 'current',
+        easing: 'easeInOutExpo',
+        updateHash: true,
+        beforeStart: function () {
+            console.log('begin scrolling');
+        },
+        onComplete: function () {
+            console.log('done scrolling');
+        }
+    });
+
     $(window).scroll(function () {
         if ($(window).scrollTop() > 400) {
-            $(".navbar-brand a").css("color","#fff");
+            $(".navbar-brand a").css("color", "#fff");
             $("#navigation").removeClass("animated-header");
         } else {
-            $(".navbar-brand a").css("color","inherit");
+            $(".navbar-brand a").css("color", "inherit");
             $("#navigation").addClass("animated-header");
         }
     });
-	
-	/* ========================================================================= */
+
+    /* ========================================================================= */
 	/*	Fix Slider Height
-	/* ========================================================================= */	
+	/* ========================================================================= */
 
     // Slider Height
     var slideHeight = $(window).height();
-    
-    $('#home-slider, #slider, .sl-slider, .sl-content-wrapper').css('height',slideHeight);
 
-    $(window).resize(function(){'use strict',
-        $('#home-slider, #slider, .sl-slider, .sl-content-wrapper').css('height',slideHeight);
+    $('#home-slider, #slider, .sl-slider, .sl-content-wrapper').css('height', slideHeight);
+
+    $(window).resize(function () {
+        'use strict',
+        $('#home-slider, #slider, .sl-slider, .sl-content-wrapper').css('height', slideHeight);
     });
-	
-	
-	
-	$("#works, #testimonial").owlCarousel({
-		navigation : true,
-		pagination : false,
-		slideSpeed : 700,
-		paginationSpeed : 400,
-		singleItem:true,
-		navigationText: ["<i class='fa fa-angle-left fa-lg'></i>","<i class='fa fa-angle-right fa-lg'></i>"]
-	});
-	
-	
-	/* ========================================================================= */
+
+
+
+    $("#works, #testimonial").owlCarousel({
+        navigation: true,
+        pagination: false,
+        slideSpeed: 700,
+        paginationSpeed: 400,
+        singleItem: true,
+        navigationText: ["<i class='fa fa-angle-left fa-lg'></i>", "<i class='fa fa-angle-right fa-lg'></i>"]
+    });
+
+
+    /* ========================================================================= */
 	/*	Featured Project Lightbox
 	/* ========================================================================= */
 
-	$(".fancybox").fancybox({
-		padding: 0,
+    $(".fancybox").fancybox({
+        padding: 0,
 
-		openEffect : 'elastic',
-		openSpeed  : 650,
+        openEffect: 'elastic',
+        openSpeed: 650,
 
-		closeEffect : 'elastic',
-		closeSpeed  : 550,
+        closeEffect: 'elastic',
+        closeSpeed: 550,
 
-		closeClick : true,
-		
-		helpers : {
-			title : { 
-				type: 'inside' 
-			},
-			overlay : {
-				css : {
-					'background' : 'rgba(0,0,0,0.8)'
-				}
-			}
-		}
-	});
-	
+        closeClick: true,
+
+        helpers: {
+            title: {
+                type: 'inside'
+            },
+            overlay: {
+                css: {
+                    'background': 'rgba(0,0,0,0.8)'
+                }
+            }
+        }
+    });
+
 });
 
 
@@ -178,18 +179,18 @@ function init() {
     // Basic options for a simple Google Map
     // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
 
-	    var myLatLng = new google.maps.LatLng(29.596042, -98.57428240000002);
+    var myLatLng = new google.maps.LatLng(29.596042, -98.57428240000002);
 
-	    var mapOptions = {
-	        zoom: 15,
-	        center: myLatLng,
-	        disableDefaultUI: true,
-	        scrollwheel: false,
-	        navigationControl: true,
-	        mapTypeControl: false,
-	        zoomControl: false,
-	        scaleControl: true,
-	        draggable: true,
+    var mapOptions = {
+        zoom: 15,
+        center: myLatLng,
+        disableDefaultUI: true,
+        scrollwheel: false,
+        navigationControl: true,
+        mapTypeControl: false,
+        zoomControl: false,
+        scaleControl: true,
+        draggable: true,
 
         // How you would like to style the map. 
         // This is where you would paste any style found on Snazzy Maps.
@@ -253,15 +254,36 @@ function init() {
     var marker = new google.maps.Marker({
         position: new google.maps.LatLng(29.5960417, -98.57428240000002),
         map: map,
-		icon: 'img/icons/map-marker.png',
+        icon: 'img/icons/map-marker.png',
     });
 }
 
 // ========== END GOOGLE MAP ========== //
 
-var wow = new WOW ({
-	offset:       75,          // distance to the element when triggering the animation (default is 0)
-	mobile:       false,       // trigger animations on mobile devices (default is true)
+var wow = new WOW({
+    offset: 75,          // distance to the element when triggering the animation (default is 0)
+    mobile: false,       // trigger animations on mobile devices (default is true)
 });
 wow.init();
 
+// ============== START CONTACT ================= //
+
+function enviarContactenos() {
+
+    $.ajax({
+        url: '../controller/contactUs.php',
+        type: 'POST',
+        data: {
+            'asunto': $("[name = 'subjectContact']").val(),
+            'mensaje': $("[name = 'messageContact']").val(),
+            'name': $("[name = 'nameContact']").val(),
+            'email': $("[name = 'emailContact']").val()
+        }
+    }).done(function (msg) {
+        if (msg == 1) {
+            alert("The mail has been sent, soon we will be contacting you.");
+        } else {
+            alert(msg);
+        };
+    });
+}
