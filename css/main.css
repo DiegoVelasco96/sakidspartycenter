@@ -17,7 +17,8 @@
 body  {
     
     background-color: #ffffff;
-/*    font-family: 'Open Sans', sans-serif;*/
+/*    font-family: 'Open Sans', sans-serif;
+    font-family: 'Shadows Into Light', sans-serif;*/
     font-family: Verdana, Arial, Helvetica, sans-serif;
     line-height: 24px;
     font-size: 20px;
@@ -824,7 +825,8 @@ ul.external li a:hover {
     text-transform: uppercase;
 }
 
-.price-table .value {
+.value {
+    margin-bottom:  10px;
     background-color: #40ff26;
     color: #f5f5f5;
     padding: 20px 0;
@@ -1458,7 +1460,7 @@ textarea.form-control {
 }
 
 #price {
-    background-image: url(../img/parallax/fondo_offer.jpg);
+    background-image: url(../img/parallax/fondo_Offer.jpg);
     padding: 0;
 }
 

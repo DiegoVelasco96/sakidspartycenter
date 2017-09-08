@@ -281,7 +281,30 @@ function enviarContactenos() {
         }
     }).done(function (msg) {
         if (msg == 1) {
-            alert("The mail has been sent, soon we will be contacting you.");
+            alert("The mail has been sent, soon we will be contacting you.",
+            location.reload());
+        } else {
+            alert(msg);
+        };
+    });
+}
+
+function enviarReservacion() {
+
+    $.ajax({
+        url: '../controller/bookNow.php',
+        type: 'POST',
+        data: {
+            'mensaje': $("[name = 'messageBookNow']").val(),
+            'name': $("[name = 'nameBookNow']").val(),
+            'email': $("[name = 'emailBookNow']").val(),
+            'phone': $("[name = 'phoneBookNow']").val(),
+            'date': $("[name = 'dateBookNow']").val()
+        }
+    }).done(function (msg) {
+        if (msg == 1) {
+            alert("your reservation has been sent, one of our advisers will be contacting you.",
+            location.reload());
         } else {
             alert(msg);
         };
